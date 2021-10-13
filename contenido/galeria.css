@@ -1,0 +1,182 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  list-style: none;
+}
+
+/* Gran caja principal */
+.main{
+  
+  height: 442px;
+  overflow: visible;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+ 
+  
+}
+
+.museo{
+  width:900px ;
+  height: 700px;
+  position: relative;
+  margin-bottom: 10%;
+  z-index: 0;
+  overflow: visible;
+}
+.banner{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  width:100%;
+  background-color: white;
+  border-style: solid;
+  border-width: 10px;
+  
+}
+
+.babi{
+  width: 30%;
+  
+ bottom: 0;
+ right: 0;
+ position: absolute;   
+ }
+ .pascal{
+  width: 16%;
+  bottom: 0;
+  left: 0;
+  position: absolute;   
+  
+ }
+ .contenido{
+   display:flex;
+   justify-content:center;
+ }
+.contenido .banner .banner-slide{
+  width: 677px;
+  height: 386px;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin:20px;
+ 
+  /* Relativo al posicionamiento del banner, no al cuerpo, por lo que el banner tiene relativo */
+}
+.slide1{
+  background: url("../img/galeria/pinturas/portada.png");
+}
+.slide2{
+  background: url("../img/mundo/pascal.png");
+}
+.slide3{
+  background: url("../img/inicio/babiArauca.png");
+}
+
+.slide-active{
+  display: block;
+}
+
+.button{
+  margin: 20px;
+height: 50px;
+  width: 50px;
+  background-image: url("../img/galeria/next.png");
+  background-size:contain;
+ background-repeat: no-repeat;
+  display: inline-block;
+}
+/* La flecha tiene un efecto translúcido al pasarla */
+.button:hover{
+ opacity: 0.5;
+ 
+}
+.prev{
+  transform: rotate(180deg)/* Voltear horizontalmente */
+}
+.next{
+  right:0;
+  left: auto;/* Sin efecto a la izquierda, aparece a la derecha del botón */
+}
+.dots{
+ 
+  right: 20px;/* A la derecha */
+  bottom: 24px;
+  text-align: center;
+  
+}
+.dots span{
+  display: inline-block;/* Aparece en una línea */
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+  background-color: rgba(255, 145, 0, 0.4);/* Establecer transparencia al mismo tiempo */
+  margin-right: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.dots span.active{
+ background: rgb(255, 136, 0);
+}
+
+@media(max-width:1180px){
+
+  .contenido .banner .banner-slide{
+    width: 473px;
+    height: 270px;
+    margin:10px;
+ }
+
+ .button{
+  width: 34px;
+  height: 34px;
+  margin: 10px;
+}
+
+.contenido .banner{
+  height: 310px; ;
+}
+
+.main{
+  height: 300px;
+  margin-top: 40px;
+}
+
+.museo{
+  height: 600px;
+}
+
+}
+
+@media(max-width:700px){
+
+  .contenido .banner .banner-slide{
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+ }
+
+ .button{
+  width: 25px;
+  height: 25px;
+  margin:5px;
+}
+
+.contenido .banner{
+  height: 228px; ;
+}
+
+.main{
+  height: 200px;
+  margin-top: 30px;
+}
+
+.museo{
+  height: 400px;
+}
+}

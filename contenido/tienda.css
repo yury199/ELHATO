@@ -1,0 +1,86 @@
+
+
+.line3{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    justify-content: flex-start;
+    
+    margin: 20px 0px;
+    flex-wrap: wrap;
+    
+   }
+   
+
+    
+   .line3 a div{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.line3 a{
+    margin: 0px 30px;
+    text-decoration: none;
+
+    
+ 
+  
+}
+
+
+
+   button{
+
+    font-family: 'Patrick Hand', cursive;
+    font-size: 14px;
+    background-color: #FBD720; 
+    border: none;
+    color: black;
+    border-radius: 11px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1), 0 6px 10px 0 rgba(0,0,0,0.15);
+    transition: 0.2s;
+    margin: 15px 10px ;
+    width: 164px;
+    height: 48px;
+    
+
+    
+}
+
+button:hover{
+
+color: white;
+}
+
+
+.marcoFoto {
+    overflow: hidden; /*esta propiedad evita que la imagen ocupe mas espacio que su contenedor*/
+    width: 257px;;
+    box-sizing:border-box;
+    float:left;
+}
+ 
+.marcoFoto img {
+    transition: all .4s ease;
+    
+}
+ 
+.marcoFoto img:hover {
+    transform:scale(1.9 ); /*cuando nos posicionamos sobre la imagen con esta propiedad aumentamos su escala y ademas la giramos*/
+    
+}
+
+
+
+
+@media(max-width:800px){
+      
+    .line3{
+        justify-content: center;
+    }
+  }
+
+
+
