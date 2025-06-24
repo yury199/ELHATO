@@ -1,247 +1,352 @@
+/* -----------------  FUENTES  ----------------- */
 @font-face {
-    font-family: "Motion";
-    src: url("tipografia.ttf");
-  }
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing:border-box;
-   
+  font-family: "Motion";
+  src: url("tipografia.ttf") format("truetype");
 }
 
-body{
-    background-color: #FFE0AB;
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Handlee&display=swap");
+
+/* -----------------  RESET BÁSICO  ----------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header{
-    max-width: 1084px;
-    position:relative;
-    z-index:1000;
-    margin: 0 auto;
-    padding-top: 53px ;
-    
-
-    
+html,
+body {
+  line-height: 1.5;
 }
 
-nav{
-    
-    display: flex;
-    justify-content: space-between;/*horizontal/deja espacio solo entre los componentes*/
-    align-items: center;/*vertical*/
-    
+body {
+  background-color: #ffe0ab;
 }
 
+/* -----------------  HEADER / NAV  ----------------- */
+header {
+  max-width: 1084px;
+  position: relative;
+  z-index: 1000;
+  margin: 0 auto;
+  padding-top: 53px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- BOTÓN HAMBURGUESA / FLECHA ---------- */
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+}
+
+.burger {
+  width: 32px;
+  height: 24px;
+  display: none; /* visible solo en móvil-tablet */
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.burger span {
+  height: 4px;
+  border-radius: 2px;
+  background: #603813;
+  transition: 0.3s;
+}
+
+/* Flecha al abrir (↖ + ↘, barra central oculta) */
+.nav-toggle:checked + .burger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.nav-toggle:checked + .burger span:nth-child(1) {
+  transform: translateY(10px) rotate(135deg);
+}
+
+.nav-toggle:checked + .burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle:checked + .burger span:nth-child(3) {
+  transform: translateY(-10px) rotate(45deg);
+}
+
+/* -----------------  MENÚ PRINCIPAL  ----------------- */
 .headerBotones {
-    display: flex;
-    list-style: none;
-}
-
-.headerBotones a{
-    background-image: url("./img/general/navButton.png");
-    width: 164px;
-    height: 51px;
-    display: inline-block;
-    text-align: center;
-    padding-top: 15px ;
-    text-decoration: none;
-    color: #603813;
-    font-family: 'Patrick Hand', cursive;
-    font-size: 17px;
-    transition: 0.4s;
-
-}
-
-.headerBotones a:hover{
-
-    color: #ffffff;
-
-
-}
-
-.headerBotones input{
-
-position: absolute;
-transition: 0.4s;
-
-opacity: 0;
-
-}
-
-.headerBotones input:checked ~ .listaContenido{
-    opacity: 1;
-    display: block;
-    transition: 0.4s;
-
+  display: flex;
+  list-style: none;
 }
 
 .headerBotones li {
-    margin-left: 21px;
+  margin-left: 21px;
 }
 
-.contenidolist{
-    position: relative;
+.headerBotones a {
+  background-image: url("./img/general/navButton.png");
+  background-size: 100% 100%;
+  width: 164px;
+  height: 51px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 15px;
+  text-decoration: none;
+  color: #603813;
+  font-family: "Patrick Hand", cursive;
+  font-size: 17px;
+  transition: 0.4s;
 }
 
-.listaContenido{
+.headerBotones a:hover {
+  color: #ffffff;
+}
+
+/* -----------------  SUB-MENÚ “CONTENIDO”  ----------------- */
+.contenidolist {
+  position: relative;
+}
+
+.contenidolist input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Oculto por defecto */
+.listaContenido {
+  list-style: none;
+  margin: 0;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Visible cuando se marca su checkbox */
+.contenidolist > input:checked ~ .listaContenido {
+  display: block;
+  opacity: 1;
+}
+
+.listaContenido li {
+  margin: 0;
+}
+
+.listaContenido li a {
+  width: 126px;
+  height: 34px;
+  padding-top: 7px;
+  background-size: cover;
+  display: inline-block;
+}
+
+.hojita {
+  width: 126px;
+  height: 34px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* -----------------  CONTENIDO  ----------------- */
+.contenido {
+  max-width: 1084px;
+  margin: 0 auto;
+  padding-top: 53px;
+  overflow: visible;
+}
+
+.titulo {
+  font-family: "Motion", cursive;
+  font-size: 40px;
+  color: #603813;
+}
+
+p {
+  font-family: "Handlee", cursive;
+  font-size: 20px;
+  color: black;
+}
+
+.p1 {
+  text-align: center;
+}
+
+/* -----------------  FOOTER  ----------------- */
+footer {
+  background-image: url("./img/general/tabla.png");
+  background-size: 100% 169px;
+  width: 100%;
+  height: 169px;
+}
+
+.puff {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1084px;
+  margin: 0 auto;
+  padding-top: 23px;
+}
+
+.peff {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.poff {
+  font-family: "Motion", cursive;
+  font-size: 47px;
+  color: #603813;
+}
+
+.instagram {
+  margin-left: 20px;
+}
+
+.facebook {
+  text-decoration: none;
+}
+
+.facebook:hover path {
+  fill: white;
+}
+
+.instagram:hover path {
+  stroke: white;
+}
+
+.paff {
+  font-family: "Handlee", cursive;
+  color: white;
+  font-size: 20px;
+  max-width: 1084px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+/* -----------------  BREAKPOINT ≥ 993 px (escritorio)  ----------------- */
+@media (min-width: 993px) {
+  .listaContenido {
     position: absolute;
-    list-style: none;
-    margin: 0;
     left: 19px;
-    opacity: 0;
-    display: none;
+  }
 }
 
+/* -----------------  BREAKPOINT ≤ 992 px (tablet / móvil)  ----------------- */
+@media (max-width: 752px) {
+  /* mostrar la hamburguesa */
+  .burger {
+    display: flex;
+  }
 
-.listaContenido li{
+  /* panel lateral */
+  .headerBotones {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 240px;
+    height: 100vh;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-image: url("./img/general/tablita.png");
+    padding-top: 100px;
+    transition: right 0.3s;
+    background-repeat: no-repeat; /* 2. Evita que la imagen se repita */
+    background-size: cover; /* 3. Asegura que la imagen cubra todo el contenedor */
+    background-position: center center;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+  }
+  .nav-toggle:checked ~ .headerBotones {
+    right: 0;
+  }
+
+  /* enlaces a todo el ancho */
+  .headerBotones li {
     margin: 0;
-    
-}
-.hojita{
-    width: 126px;
-    height: 34px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.listaContenido li a{
-
-    width: 126px;
-    height: 34px;
-    padding-top:7px;
-    background-size: cover;
-}    
-
-.contenido{
-    max-width: 1084px;
-    margin: 0 auto;
-    padding-top: 53px ;
-    overflow: visible;
-    
-   
-}
-
-.titulo{
-    font-family: "Motion", cursive;
-    font-size: 40px;
-    color: #603813;
-
-}
-p{
-    font-family: 'Handlee', cursive;
-    font-size: 20px;
-    color: black;    
-}
-
-.p1{
-    text-align:center;   
-}
-
-
-
-footer{
-    background-image: url("./img/general/tabla.png");
-    background-size: 100% 169px;
-    width:100%;
-    height:169px;
-    
-}
-
-.puff{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    max-width: 1084px;
-    margin: 0 auto;
-    padding-top: 23px ;
-}
-.peff{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.poff{
-    font-family: "Motion", cursive;
-    font-size: 47px;
-    color: #603813;
-}
-.instagram{
-    margin-left: 20px;
-}
-
-.facebook{
-    text-decoration: none;
-}
-.facebook:hover path{
-    fill:white;    
-}
-.instagram:hover path{
-    
-
-    stroke:white;
-    
-}
-.paff{
-    font-family: 'Handlee', cursive;
-    color: white;
-    font-size: 20px;
-
-    max-width: 1084px;
-    margin: 0 auto;
-    padding-top: 40px ;
-    
-    
-    
-}
-
-@media(max-width:1196px){
-    .contenido{
-        width: 100%;
-        max-width: none;
-        padding: 0 80px;
-    }
-
-    .headerBotones a{
-        width: 100px;
-        background-size: 100% 100%;
-        
-    }
-
-    .headerBotones li {
-        margin-left: 10px;
-    }
-
-  header{
-      margin: 0 7%;
+    width: 100%;
+  }
+  .headerBotones a {
+    width: 100% !important;
+    height: 48px;
+    padding-top: 14px;
+  
+    border: solid 3px;
+    background-image: none;
+    /* --- línea inferior --- */
+    border: 0; 
+    border-bottom: 3px solid #603813; 
+    margin: 0;
   }
 
 
 
- .listaContenido li a{
+  /* sub-menú fluye dentro del panel */
+  .listaContenido {
+    position: static;
+    margin-left: 1.5rem;
 
+    
+  }
+
+  .listaContenido a{
+
+    background-color:rgba(255,255,255,0.2);
+    width: 100% !important;
+  }
+
+  /* ocultar las “hojitas” decorativas */
+  .hojita {
+    display: none;
+  }
+
+  /* ajustar header lateral en tablet */
+}
+
+/* -----------------  BREAKPOINT ≤ 1196 px (ajustes intermedios)  ----------------- */
+@media (max-width: 1196px) {
+  .contenido {
+    width: 100%;
+    max-width: none;
+    padding: 0 80px;
+  }
+  header {
+    margin: 0 7%;
+  }
+
+  .headerBotones a {
+    width: 100px;
+    background-size: 100% 100%;
+  }
+
+  .headerBotones li {
+    margin-left: 10px;
+  }
+
+  .listaContenido li a {
     width: 83px;
     height: 34px;
-    
     background-size: 100% 100%;
-}  
+  }
 
-.hojita{
+  .hojita {
     width: 85px;
     height: 34px;
-    
-    
-}
+  }
 
-.puff{
+  .puff,
+  .paff {
     margin: auto 20px;
-}
-.paff{
-    margin: auto 20px;
-}
-.listaContenido{
-    left: 0px;
-}
+  }
+
+  .listaContenido {
+    left: 0;
+  }
 }
